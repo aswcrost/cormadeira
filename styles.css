@@ -1,0 +1,920 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: relative;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+header.expanded {
+    height: 100vh;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+/* Prevenir rolagem horizontal */
+body {
+    overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
+/* Ajustar elementos que podem ultrapassar as bordas */
+.container {
+    max-width: 100%; /* Garante que o contêiner não ultrapasse a tela */
+}
+
+/* Estilo do logotipo */
+.logo {
+    width: 280px; /* Tamanho padrão ajustável */
+    max-width: 100%; /* Garantir responsividade */
+    height: auto; /* Proporção correta */
+    margin-bottom: 1rem; /* Espaçamento abaixo do logotipo */
+    cursor: pointer; /* Adiciona cursor de clique */
+    transition: transform 0.3s ease; /* Transição suave para efeitos */
+}
+
+/* Menu hamburguer */
+.menu-hamburguer {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 1rem;
+    cursor: pointer;
+}
+
+.menu-hamburguer span {
+    position: absolute;
+    width: 30px; /* Largura fixa */
+    height: 4px; /* Altura fixa */
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Ajuste do tamanho e visibilidade do "X" */
+.menu-hamburguer.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%; /* Alinhamento vertical */
+}
+
+.menu-hamburguer.active span:nth-child(2) {
+    opacity: 0; /* Ocultar o traço do meio */
+}
+
+.menu-hamburguer.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 50%; /* Alinhamento vertical */
+}
+
+/* Posicionamento inicial dos traços */
+.menu-hamburguer span:nth-child(1) {
+    top: 25%; /* Superior */
+}
+
+.menu-hamburguer span:nth-child(2) {
+    top: 50%; /* Meio */
+}
+
+.menu-hamburguer span:nth-child(3) {
+    top: 75%; /* Inferior */
+}
+
+/* Estilos para o menu */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold; /* Fonte em negrito */
+    transition: color 0.3s ease; /* Transição suave para o efeito */
+}
+
+nav ul li a:hover {
+    color: #ccc; /* Cor mais clara ao passar o mouse */
+}
+
+/* Estilo para telas maiores que 714px */
+@media (min-width: 715px) {
+    .container {
+        display: flex;
+        justify-content: space-between; /* Logotipo à esquerda, menu à direita */
+        align-items: center; /* Alinhamento vertical */
+    }
+
+    .logo {
+        margin-bottom: 0; /* Remove espaço extra abaixo do logotipo */
+    }
+}
+
+/* Responsividade para telas menores que 714px */
+@media (max-width: 714px) {
+    .menu-hamburguer {
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    header.expanded .nav-links {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column; /* Empilha os elementos */
+        align-items: center; /* Centraliza logotipo e menu */
+        text-align: center; /* Garante centralização do conteúdo */
+    }
+
+    .logo {
+        margin-bottom: 20px; /* Espaçamento abaixo do logotipo */
+    }
+}
+
+/* Banner (Hero) */
+.hero {
+    height: 100vh; /* Altura total da janela */
+    background-image: url('banner-cor-madeira.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Adapta a imagem para cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    text-align: center; /* Centraliza o texto */
+    color: #fff; /* Cor do texto */
+    padding: 8rem 6rem; /* Espaçamento interno padrão */
+    position: relative; /* Para camadas adicionais no futuro */
+}
+
+/* Banner Principal */
+.hero-content {
+    max-width: 1200px; /* Limita a largura do conteúdo */
+    padding: 8rem 6rem; /* Espaçamento interno padrão */
+    text-align: center; /* Centraliza os elementos */
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Tamanho grande do título */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra no texto */
+    line-height: 1.2; /* Ajuste de altura entre linhas */
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Tamanho da descrição */
+    max-width: 800px; /* Limita a largura do texto */
+    margin: 0 auto; /* Centraliza o texto */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra no texto */
+    line-height: 1.6; /* Ajuste de altura entre linhas */
+}
+
+/* Responsividade do Hero */
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 2rem; /* Ajusta o espaçamento horizontal em telas menores */
+    }
+
+    .hero-content {
+        padding: 6rem 2rem; /* Ajusta o espaçamento interno do conteúdo */
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem; /* Título menor, mas ainda grande */
+    }
+
+    .hero-content p {
+        font-size: 1.3rem; /* Descrição menor */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1.5rem; /* Reduz ainda mais o espaçamento horizontal */
+    }
+
+    .hero-content {
+        padding: 6rem 1.5rem; /* Ajusta o espaçamento interno do conteúdo */
+    }
+
+    .hero-content h1 {
+        font-size: 3rem; /* Título grande para telas pequenas */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Ajusta a descrição */
+    }
+}
+
+/* Sessão Sobre Nós */
+#sobre {
+    background: #f5f5f5; /* Fundo suave */
+    padding: 8rem 6rem; /* Espaçamento interno */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; /* Espaço entre texto e imagem */
+}
+
+.about-text {
+    flex: 1; /* O texto ocupa metade do espaço */
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem; /* Tamanho do título */
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 1; /* A imagem ocupa metade do espaço */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%; /* A imagem se ajusta ao espaço */
+    max-width: 500px; /* Limita o tamanho máximo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s ease; /* Animação suave */
+}
+
+.about-image img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #sobre {
+        padding: 6rem 2rem; /* Aumenta o espaçamento horizontal em telas pequenas */
+    }
+
+    .about-container {
+        flex-direction: column; /* Empilha os elementos */
+        text-align: center; /* Centraliza o texto */
+        gap: 2rem; /* Espaço entre os elementos */
+    }
+
+    .about-text {
+        margin-bottom: 2rem; /* Espaço abaixo do texto */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Remove limite fixo em telas pequenas */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+}
+
+/* Sessão Serviços */
+#servicos {
+    background: #fff; /* Fundo branco para contraste */
+    padding: 8rem 6rem; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    word-spacing: normal; 
+}
+
+.services-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.services-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem; /* Espaço entre a descrição e os cartões */
+    max-width: 800px; /* Limita a largura do texto */
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o texto */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsivo */
+    gap: 2rem; /* Espaçamento entre os cartões */
+    justify-content: center; /* Centraliza os cartões no grid */
+    align-items: start; /* Garante alinhamento inicial dos cartões */
+}
+
+.service-card {
+    display: flex; /* Alinhamento flexível */
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    background: #f9f9f9; /* Fundo do cartão */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 2rem; /* Espaçamento interno */
+    height: auto; /* Ajusta a altura automaticamente */
+    min-height: 300px; /* Altura mínima consistente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito suave */
+}
+
+.service-card img {
+    display: block; /* Remove o comportamento inline */
+    margin: 0 auto 1rem auto; /* Centraliza horizontalmente e adiciona espaçamento inferior */
+    width: 80px; /* Tamanho fixo */
+    height: 80px; /* Mantém proporção */
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center; /* Centraliza o texto */
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #666;
+    text-align: left; /* Centraliza o texto */
+    line-height: 1.6; /* Ajusta a altura entre linhas */
+}
+
+/* Botão Saber Mais */
+.accordion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem; /* Espaço entre o botão e o restante */
+}
+
+.accordion:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion i {
+    font-size: 1rem;
+    margin-left: 0.5rem; /* Espaço entre o texto e o ícone */
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    display: none; /* Oculto por padrão */
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left; /* Garante alinhamento à esquerda */
+    width: 100%; /* Garante que o conteúdo ocupe toda a largura disponível */
+}
+
+/* Ícone ao expandir */
+.accordion.active i {
+    transform: rotate(45deg); /* Ícone muda ao expandir */
+}
+
+.accordion.active + .accordion-content {
+    display: block; /* Exibe o conteúdo */
+}
+
+/* Efeito ao passar o mouse */
+.service-card:hover {
+    transform: translateY(-5px); /* Eleva o cartão */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #servicos {
+        padding: 6rem 2rem; /* Ajuste do espaçamento interno em telas menores */
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /* Empilha os cartões */
+        gap: 2rem; /* Espaço entre os cartões */
+        justify-content: center; /* Centraliza os cartões */
+    }
+
+    .service-card {
+        min-height: unset; /* Remove a altura mínima em telas menores */
+    }
+}
+
+/* Sessão Produtos */
+#produtos {
+    background: linear-gradient(135deg, #e3e3e3, #ffffff); /* Gradiente suave */
+    padding: 8rem 10rem; /* Aumenta o padding lateral em telas maiores */
+    text-align: center;
+    color: #333;
+}
+
+#produtos .gallery-container h2 {
+    font-size: 2.5rem; /* Ajustado para o mesmo tamanho da sessão Nossos Serviços */
+    color: #333;
+    margin-bottom: 1.5rem; /* Espaço consistente abaixo do título */
+}
+
+#produtos .gallery-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    line-height: 1.8; /* Ajuste para maior legibilidade */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid da Galeria */
+#produtos .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta dinamicamente o número de colunas */
+    gap: 15px; /* Espaçamento horizontal e vertical */
+    justify-content: center; /* Centraliza os itens no grid */
+}
+
+/* Itens da Galeria */
+#produtos .gallery-item {
+    position: relative;
+    width: 100%; /* Adapta ao grid */
+    aspect-ratio: 1 / 1; /* Proporção 1:1 (quadrada) */
+    overflow: hidden; /* Garante que nada ultrapasse o contêiner */
+    display: flex; /* Alinhamento flexível */
+    justify-content: center;
+    align-items: center;
+}
+
+#produtos .gallery-item img {
+    width: 100%;
+    height: 100%; /* Preenche todo o contêiner */
+    object-fit: cover; /* Ajusta a imagem ao espaço */
+    display: block; /* Remove comportamento inline */
+    transition: filter 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+#produtos .gallery-item:hover img {
+    filter: brightness(50%); /* Escurece a imagem ao passar o mouse */
+}
+
+/* Sobreposição com informações */
+#produtos .gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ajusta ao tamanho da imagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os textos verticalmente */
+    align-items: center; /* Centraliza os textos horizontalmente */
+    background: rgba(0, 0, 0, 0.5); /* Cor semitransparente */
+    opacity: 0; /* Invisível por padrão */
+    transition: opacity 0.3s ease; /* Suaviza a transição */
+    pointer-events: none; /* Evita interferências de foco */
+}
+
+#produtos .gallery-item:hover .overlay {
+    opacity: 1; /* Aparece ao passar o mouse */
+    pointer-events: all; /* Permite interação com o conteúdo ao passar o mouse */
+}
+
+#produtos .gallery-item .overlay h3 {
+    font-size: 1.5rem; /* Tamanho do título */
+    color: #fff; /* Texto branco */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Destaque no texto */
+}
+
+#produtos .gallery-item .overlay p {
+    font-size: 1rem; /* Tamanho da descrição */
+    color: #fff; /* Texto branco */
+    text-align: center;
+    line-height: 1.6; /* Ajusta a altura das linhas */
+    margin: 0 1rem; /* Espaçamento horizontal */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #produtos {
+        padding: 6rem 2rem; /* Margens laterais menores para telas médias */
+    }
+
+    #produtos .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 itens por linha */
+        gap: 10px; /* Reduz o espaçamento entre itens */
+    }
+
+    #produtos .gallery-item {
+        aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
+    }
+
+    #produtos .gallery-item img {
+        width: 100%; /* Garante largura total */
+        height: auto; /* Mantém proporção correta */
+        object-fit: cover; /* Ajusta a imagem ao espaço */
+    }
+
+    #produtos .gallery-item .overlay {
+        height: 100%; /* Alinha ao tamanho do contêiner da imagem */
+    }
+}
+
+@media (max-width: 480px) {
+    #produtos {
+        padding: 6rem 1rem; /* Margens laterais ainda menores */
+    }
+
+    #produtos .gallery-grid {
+        grid-template-columns: 1fr; /* 1 item por linha */
+        gap: 8px; /* Espaçamento reduzido */
+    }
+
+    #produtos .gallery-item {
+        aspect-ratio: 1 / 1; /* Mantém proporção quadrada */
+    }
+
+    #produtos .gallery-item img {
+        width: 100%; /* Preenche todo o espaço */
+        height: auto; /* Mantém proporção correta */
+        object-fit: cover; /* Garante que a imagem preencha o espaço */
+    }
+
+    #produtos .gallery-item .overlay {
+        height: 100%; /* Ajusta ao tamanho da imagem */
+    }
+    #produtos .gallery-item {
+        display: none; /* Oculta todos os itens por padrão */
+    }
+
+    #produtos .gallery-grid .gallery-item:nth-child(-n+4) {
+        display: block; /* Exibe apenas os 4 primeiros itens */
+    }
+}
+
+/* Botões abaixo da galeria */
+.gallery-buttons {
+    display: flex; /* Define o layout flexível */
+    flex-wrap: wrap; /* Permite que os botões "quebrem" para a próxima linha */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 15px; /* Espaçamento fixo entre os botões */
+    margin-top: 3rem; /* Espaço acima dos botões */
+}
+
+.button {
+    display: inline-block;
+    padding: 1rem 2rem; /* Tamanho do botão */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333; /* Texto em cinza escuro */
+    background-color: #fff; /* Fundo branco */
+    border: 2px solid #555; /* Borda cinza escuro */
+    border-radius: 30px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Suaviza as cores e sombras */
+    text-align: center; /* Centraliza o texto no botão */
+}
+
+.button:hover {
+    background-color: #f0f0f0; /* Cinza mais claro no hover */
+    color: #000; /* Texto preto no hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+}
+
+.button-secondary {
+    /* Mesmo estilo que o botão principal */
+}
+
+.button-secondary:hover {
+    /* Herdando o estilo do hover do botão principal */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .gallery-buttons {
+        flex-direction: column; /* Coloca os botões em coluna */
+        align-items: center; /* Centraliza os botões verticalmente */
+    }
+
+    .button {
+        width: 100%; /* Botões ocupam toda a largura em telas menores */
+        max-width: 300px; /* Limite de largura */
+    }
+}
+
+/* Sessão Lojas */
+#lojas {
+    background: #ffffff; /* Fundo neutro */
+    padding: 8rem 6rem; /* Espaçamento interno */
+    text-align: center;
+    color: #333;
+}
+
+.stores-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.stores-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+    gap: 2rem; /* Espaçamento entre os itens */
+}
+
+.store-card {
+    background: none; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    box-shadow: none; /* Remove a sombra */
+    text-align: center; /* Centraliza o conteúdo */
+    padding: 0; /* Remove o espaçamento interno */
+}
+
+.store-card img {
+    max-width: 100px; /* Ajuste o tamanho do logo */
+    margin-bottom: 1rem;
+}
+
+.store-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.store-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #lojas {
+        padding: 6rem 2rem;
+    }
+
+    .stores-grid {
+        grid-template-columns: 1fr; /* Empilha os itens */
+        gap: 1.5rem;
+    }
+
+    .store-card img {
+        max-width: 80px; /* Reduz o tamanho do logo */
+    }
+}
+
+/* Sessão Contato */
+#contato {
+    padding: 6rem 6rem; /* Espaçamento interno consistente */
+    background-color: #f9f9f9; /* Fundo claro */
+    text-align: center;
+    color: #333;
+}
+
+.contact-header {
+    margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Layout da área de conteúdo */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: flex-start; /* Alinha os itens ao topo */
+    max-width: 1200px; /* Define um limite máximo para o layout */
+    margin: 0 auto; /* Centraliza o layout na página */
+}
+
+/* Informações de Contato */
+.contact-info {
+    flex: 1; /* Ocupa proporcionalmente metade do espaço */
+    max-width: 48%; /* Limita a largura máxima */
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Ícones de redes sociais */
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    font-size: 2rem; /* Tamanho dos ícones */
+    margin-right: 15px;
+    color: #555; /* Cinza escuro */
+    transition: color 0.3s ease; /* Suaviza o efeito */
+}
+
+.social-icons a:hover {
+    color: #333; /* Tom mais claro no hover */
+}
+
+/* Formulário */
+.contact-form {
+    flex: 1; /* Ocupa proporcionalmente metade do espaço */
+    max-width: 48%; /* Limita a largura máxima */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaçamento entre os campos */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    resize: none; /* Remove redimensionamento do textarea */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #007BFF; /* Cor de foco */
+}
+
+.contact-form .button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #555; /* Cinza escuro */
+    border: 2px solid #555;
+    border-radius: 25px; /* Cantos arredondados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza o hover */
+    text-align: center;
+    cursor: pointer;
+}
+
+.contact-form .button:hover {
+    background-color: #333; /* Tom mais claro no hover */
+    color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #contato {
+        padding: 6rem 1rem; /* Reduz ainda mais as margens laterais */
+    }
+
+    .contact-content {
+        flex-direction: column; /* Empilha os itens */
+        align-items: center; /* Centraliza os itens */
+        gap: 2rem; /* Espaçamento entre os itens */
+    }
+
+    .contact-info,
+    .contact-form {
+        max-width: 100%; /* Usa toda a largura disponível */
+        width: 90%; /* Garante proporção adequada */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .contact-form .button {
+        display: block; /* Garante que o botão seja tratado como bloco */
+        margin: 1.5rem auto 0 auto; /* Centraliza o botão */
+    }
+}
+
+@media (max-width: 480px) {
+    #contato {
+        padding: 4rem 1rem; /* Margens ainda menores */
+    }
+
+    .contact-content {
+        gap: 1rem; /* Reduz o espaçamento entre itens */
+    }
+
+    .contact-form {
+        width: 90%; /* Formulário ocupa 90% da largura */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem; /* Texto menor nos campos */
+    }
+
+    .contact-form .button {
+        font-size: 0.9rem; /* Botão menor */
+    }
+}
+
+/* Footer */
+#footer {
+    background-color: #333; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    text-align: center;
+    padding: 2rem 1rem; /* Espaçamento interno */
+    font-size: 1rem;
+}
+
+.footer-container {
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+#footer p {
+    font-size: 1rem; /* Tamanho do texto */
+    margin: 0; /* Remove margens padrão */
+}
+
