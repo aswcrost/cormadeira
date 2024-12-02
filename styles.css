@@ -16,6 +16,20 @@ body {
     margin: 0 auto;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 /* Cabeçalho */
 header {
     background: #333;
@@ -34,12 +48,10 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-/* Prevenir rolagem horizontal */
 body {
     overflow-x: hidden; /* Remove a rolagem horizontal */
 }
 
-/* Ajustar elementos que podem ultrapassar as bordas */
 .container {
     max-width: 100%; /* Garante que o contêiner não ultrapasse a tela */
 }
@@ -50,7 +62,6 @@ body {
     max-width: 100%; /* Garantir responsividade */
     height: auto; /* Proporção correta */
     margin-bottom: 1rem; /* Espaçamento abaixo do logotipo */
-    cursor: pointer; /* Adiciona cursor de clique */
     transition: transform 0.3s ease; /* Transição suave para efeitos */
 }
 
@@ -295,7 +306,6 @@ nav ul li a:hover {
     width: 100%; /* A imagem se ajusta ao espaço */
     max-width: 500px; /* Limita o tamanho máximo */
     border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
     transition: transform 0.3s ease; /* Animação suave */
 }
 
@@ -407,6 +417,7 @@ nav ul li a:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: #333; /* Cor inicial do texto */
     margin-top: 1rem; /* Espaço entre o botão e o restante */
 }
 
@@ -558,7 +569,7 @@ nav ul li a:hover {
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     #produtos {
-        padding: 6rem 2rem; /* Margens laterais menores para telas médias */
+        padding: 6rem 1rem; /* Margens laterais menores para telas médias */
     }
 
     #produtos .gallery-grid {
@@ -703,7 +714,7 @@ nav ul li a:hover {
 }
 
 .store-card img {
-    max-width: 100px; /* Ajuste o tamanho do logo */
+    max-width: 250px; /* Ajuste o tamanho do logo */
     margin-bottom: 1rem;
 }
 
@@ -731,7 +742,7 @@ nav ul li a:hover {
     }
 
     .store-card img {
-        max-width: 80px; /* Reduz o tamanho do logo */
+        max-width: 250px; /* Reduz o tamanho do logo */
     }
 }
 
