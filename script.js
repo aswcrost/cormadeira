@@ -52,6 +52,9 @@ const feedback = document.getElementById('form-feedback');
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // Impede o envio padrão do formulário
 
+    // Exibe o indicador de carregamento
+    feedback.innerHTML = '<span class="spinner"></span> Enviando...';
+
     // Prepara os dados do formulário
     const formData = new FormData(form);
 
