@@ -43,3 +43,36 @@ document.querySelectorAll('.accordion').forEach(button => {
         }
     });
 });
+
+// Seleciona o formulário e o elemento de feedback
+const form = document.getElementById('contact-form');
+const feedback = document.getElementById('form-feedback');
+
+// Adiciona evento de envio
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Prepara os dados do formulário
+    const formData = new FormData(form);
+
+    try {
+        // Envia o formulário usando fetch
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        });
+
+        // Verifica a resposta e exibe mensagem de sucesso
+        if (response.ok) {
+            feedback.textContent = 'Mensagem enviada com sucesso!';
+            feedback.style.color = 'green';
+            form.reset(); // Limpa o formulário
+        } else {
+            throw new Error('Erro ao enviar o formulário.');
+        }
+    } catch (error) {
+        // Exibe mensagem de erro
+        feedback.textContent = 'Ocorreu um erro. Por favor, tente novamente.';
+        feedback.style.color = 'red';
+    }
+});
