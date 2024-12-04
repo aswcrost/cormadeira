@@ -248,12 +248,14 @@
         </div>
 
         <!-- Formulário de Contato -->
-        <form action="https://formsubmit.co/contato@cormadeira.com.br" method="POST" class="contact-form">
-            <input type="text" name="nome" placeholder="Seu Nome" required>
-            <input type="email" name="email" placeholder="Seu E-mail" required>
-            <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-            <button type="submit" class="button">Enviar</button>
-        </form>
+        <form id="contact-form" action="https://formsubmit.co/SEU-EMAIL" method="POST">
+    <input type="text" name="name" placeholder="Seu Nome" required>
+    <input type="email" name="email" placeholder="Seu Email" required>
+    <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Enviar</button>
+</form>
+<div id="form-feedback" style="margin-top: 1rem;"></div>
     </div>
 </section>
 
