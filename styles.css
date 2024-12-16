@@ -677,7 +677,6 @@ nav ul li a:hover {
 
 /* Sessão Lojas */
 #lojas {
-    display: none; /* A seção será oculta */
     background: #ffffff; /* Fundo neutro */
     padding: 8rem 6rem; /* Espaçamento interno */
     text-align: center;
