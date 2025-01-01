@@ -948,4 +948,12 @@ nav ul li a:hover {
     font-size: 1rem; /* Tamanho do texto */
     margin: 0; /* Remove margens padrão */
 }
+/* Estilo para os links dentro do footer */
+#footer a {
+    color: #fff; /* Cor branca para os links */
+    text-decoration: none; /* Remove sublinhado, caso não queira */
+}
 
+#footer a:hover {
+    color: #ccc; /* Cor mais clara quando o link for hover (opcional) */
+}
